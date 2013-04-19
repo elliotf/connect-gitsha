@@ -65,11 +65,29 @@ describe("connect git-sha", function() {
 
       it("annotates each request with the current git-sha", function(done) {
         this.middleware({}, this.fakeRes, function(err){
-          expect(err).to.not.exist;
           expect(this.fakeRes.setHeader).to.have.been.calledWith('X-Git-SHA', 'a git sha');
 
           done();
         }.bind(this));
+      });
+    });
+
+    describe("when not faking things", function() {
+      beforeEach(function() {
+        child_process.spawn.restore();
+        this.middleware = require('./index.js')();
+      });
+
+      it("works IRL", function(done) {
+        var timeToWaitForGit = 500;
+
+        setTimeout(function(){
+          this.middleware({}, this.fakeRes, function(err){
+            expect(this.fakeRes.setHeader).to.have.been.calledWithMatch('X-Git-SHA', /^[0-9a-f]+$/);
+
+            done();
+          }.bind(this));
+        }.bind(this), timeToWaitForGit);
       });
     });
   });
