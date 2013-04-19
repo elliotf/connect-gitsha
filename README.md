@@ -2,6 +2,8 @@
 
 Add an 'X-Git-SHA' header to each response
 
+[![Build Status](https://secure.travis-ci.org/elliotf/connect-gitsha.png)](http://travis-ci.org/elliotf/connect-gitsha)
+
 ## installation
 
     $ npm install connect-gitsha
