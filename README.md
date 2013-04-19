@@ -11,7 +11,7 @@ Add an 'X-Git-SHA' header to each response
 Like any other middleware:
 
     var express = require('express')
-      , gitsha  = require('gitsha')
+      , gitsha  = require('connect-gitsha')
     ;
 
     var app = express();
