@@ -1,10 +1,11 @@
 {
   "author": "Elliot Foster <efoster@firetaco.com>",
-  "name": "connect-git-sha",
-  "description": "Add the current git sha as a header",
+  "name": "connect-gitsha",
+  "description": "Add the current git sha as a response header",
+  "tags": ["git", "sha", "gitsha", "header"],
   "version": "1.0.0",
   "repository": {
-    "url": "https://github.com/elliotf/connect-git-sha-header"
+    "url": "https://github.com/elliotf/connect-gitsha"
   },
   "scripts": {
     "test": "make test"
